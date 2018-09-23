@@ -1,7 +1,6 @@
 from django.urls import path, include
 from . import views
 
-
 app_name = 'todoapp' # for namespacing
 urlpatterns = [
     path('', views.index, name='index'),

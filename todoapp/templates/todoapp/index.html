@@ -1,0 +1,14 @@
+{% extends 'todoapp/base.html' %}
+{% load static %}
+{% block title %}Todo{% endblock %}
+
+
+{% block content%}
+<h2>THERE IS NO SPOON</h2>
+
+{% for x in todos %}
+	<li>{{ x.title }}</li>
+	<li>{{ x.body }}</li>
+{% endfor %}
+
+{% endblock %}
