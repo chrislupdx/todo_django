@@ -5,10 +5,8 @@
 
 {% block content%}
 <h2>THERE IS NO SPOON</h2>
-<ul>
-{% for athlete in todo %}
-    <li>{{ athlete.title }}</li>
-    <li>{{ athlete.body }}</li>
-{% endfor %}
-</ul>
+{%include "todoapp/todo_display.html" %}
+{%include "todoapp/add_todo.html" %}
+
+
 {% endblock %}

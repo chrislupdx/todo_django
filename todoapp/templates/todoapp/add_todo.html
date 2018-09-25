@@ -1,0 +1,8 @@
+{% extends 'todoapp/base.html' %}
+{% load static %}
+
+<form action="add_todo" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
