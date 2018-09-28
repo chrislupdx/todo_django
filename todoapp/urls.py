@@ -4,7 +4,7 @@ from . import views
 app_name = 'todoapp' # for namespacing
 urlpatterns = [
     path('', views.index, name='index'),
-    path('add_todo/', views.add_todo, name='add_todo'),
+    path('add_todo', views.add_todo, name='add_todo'),
     path('todo_display/', views.todo_display, name='todo_display'),
 
 ]

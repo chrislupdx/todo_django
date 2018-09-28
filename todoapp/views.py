@@ -14,19 +14,12 @@ def index(request):
 
 def add_todo(request):
 	if request.method == 'POST':
-		form = Todoform(request.POST)
-		if form.is_valid():
-			todo = form.save(commit=False)
-			todo.save()
-			return redirect('lfw:index')
-	else:
-
-		form = Todoform()
-	context = {'form': form}
-	return render(request, 'lfw/index.html', context)
+		todotext = request.POST.get('body')
+		newtodo = Todo(body=todotext, user=request.user)
+		newtodo.save()
+	return redirect('todoapp:index')
 
 def todo_display(request):
 	todo = Todo.objects.all()
 	context = {'todo' :todo}
 	return render(request,'lfw/todo_display.html', context)
-

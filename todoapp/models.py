@@ -5,13 +5,12 @@ from django.forms import ModelForm
 
 class Todo(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	title = models.CharField(max_length=250)
-	body = models.TextField()
+	body = models.TextField(null=True, blank=True)
 
 	def __str__(self):
-		return self.title
+		return self.body
 		
 class Todoform(ModelForm):
     class Meta:
         model = Todo
-        fields = ['title', 'body']
+        fields = ['body']
