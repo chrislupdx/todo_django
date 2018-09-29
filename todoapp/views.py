@@ -14,7 +14,7 @@ def index(request):
 
 def add_todo(request):
 	if request.method == 'POST':
-		todotext = request.POST.get('body')
+		todotext = request.POST.get('todo_text')
 		newtodo = Todo(body=todotext, user=request.user)
 		newtodo.save()
 	return redirect('todoapp:index')
