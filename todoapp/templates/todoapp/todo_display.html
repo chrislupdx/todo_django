@@ -1,10 +1,23 @@
 {% extends 'todoapp/base.html' %}
 {% load static %}
+{% block styles%} 
 
+{% endblock styles%}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 {% block content%}
 <ul>
-{% for thing in todo %}
-    <li>{{ thing.body }}</li>
+{% for task in todo %}
+    <li>{{ task.body }}
+    {{task.create_date}}
+     	<a href="{% url 'todoapp:delete_todo' pk=task.id %}">
+     <i class="material-icons">close</i>
+     	</a>
+    <hr />
+
+    </li>
+
 {% endfor %}
 </ul>
+
+
 {% endblock %}

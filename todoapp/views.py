@@ -23,3 +23,8 @@ def todo_display(request):
 	todo = Todo.objects.all()
 	context = {'todo' :todo}
 	return render(request,'lfw/todo_display.html', context)
+
+def delete_todo(request, pk):
+	todo = get_object_or_404(Todo, pk=pk)
+	todo.delete()
+	return redirect('todoapp:index')
