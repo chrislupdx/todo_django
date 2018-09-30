@@ -7,7 +7,7 @@ from django.forms import ModelForm
 
 class Todo(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	body = models.TextField(null=True, blank=True)
+	body = models.CharField(max_length=250, null=True, blank=True)
 	finished = models.BooleanField(default=False)
 	create_date = models.DateTimeField(default=datetime.now())
 
