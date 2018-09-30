@@ -28,3 +28,9 @@ def delete_todo(request, pk):
 	todo = get_object_or_404(Todo, pk=pk)
 	todo.delete()
 	return redirect('todoapp:index')
+
+def finished_task(request, pk):
+	todo = get_object_or_404(Todo, pk=pk)
+	todo.finished = not todo.finished
+	todo.save()
+	return redirect('todoapp:index')
