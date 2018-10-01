@@ -6,22 +6,24 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 {% block content%}
 <ul>
-{% for task in todo %}
-    <li>{{ task.body }}
-    {{task.create_date}}
-     	<a href="{% url 'todoapp:delete_todo' pk=task.id %}">
-     <i class="material-icons">close</i>
-     	</a>
-     	
-     	<a href="{% url 'todoapp:finished_task' pk=task.id %}">  
-     	{% if task.finished%}
-            <i class="material-icons">check_box</i>
-     	{% else %}
-            <i class="material-icons">check_box_outline_blank</i>
-     	{% endif %}
-     	</a>
-    </li>
+{% if user.is_authenticated %}      
+    {% for task in todo %}
+        <li>{{ task.body }}
+        {{task.create_date}}
+         	<a href="{% url 'todoapp:delete_todo' pk=task.id %}">
+         <i class="material-icons">close</i>
+         	</a>
+         	
+         	<a href="{% url 'todoapp:finished_task' pk=task.id %}">  
+         	{% if task.finished%}
+                <i class="material-icons">check_box</i>
+         	{% else %}
+                <i class="material-icons">check_box_outline_blank</i>
+         	{% endif %}
+         	</a>
+        </li>
 {% endfor %}
+{% endif %}
 </ul>
 
 {% endblock %}
